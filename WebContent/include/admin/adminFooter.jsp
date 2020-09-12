@@ -2,7 +2,7 @@
     pageEncoding="UTF-8" isELIgnored="false"%>
   
 <div class="footer">
-
+	@2020.5.22科技版权所有
 </div>
   
 </body>
