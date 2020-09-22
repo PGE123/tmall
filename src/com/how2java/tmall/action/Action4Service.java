@@ -6,10 +6,43 @@ import org.apache.commons.lang.xwork.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.how2java.tmall.service.CategoryService;
+import com.how2java.tmall.service.OrderItemService;
+import com.how2java.tmall.service.OrderService;
+import com.how2java.tmall.service.ProductImageService;
+import com.how2java.tmall.service.ProductService;
+import com.how2java.tmall.service.PropertyService;
+import com.how2java.tmall.service.PropertyValueService;
+import com.how2java.tmall.service.UserService;
 
 public class Action4Service extends Action4Pojo {
 	@Autowired
 	CategoryService categoryService;
+	
+	@Autowired
+	PropertyService propertyService;
+	
+	@Autowired
+	ProductService productService;
+	
+	@Autowired
+	ProductImageService productImageService;
+	
+	@Autowired
+	PropertyValueService propertyValueService;
+	
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	OrderService orderService;
+	
+	@Autowired
+	OrderItemService orderItemService;
+	
+	/*transient to persistent
+	 * 瞬时对象转化为持久对象
+	 *  @Param o
+	 *  */
 	
 	public void t2p(Object o){
 		try{
