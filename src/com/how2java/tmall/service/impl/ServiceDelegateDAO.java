@@ -18,8 +18,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.support.SQLExceptionTranslator;
 import org.springframework.orm.hibernate3.HibernateCallback;
+import org.springframework.stereotype.Service;
 
 import com.how2java.tmall.dao.impl.DAOImpl;
+
 
 public class ServiceDelegateDAO {
 	
