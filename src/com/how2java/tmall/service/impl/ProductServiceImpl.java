@@ -2,20 +2,37 @@ package com.how2java.tmall.service.impl;
  
 import java.util.ArrayList;
 import java.util.List;
- 
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
- 
+
 import com.how2java.tmall.pojo.Category;
 import com.how2java.tmall.pojo.Product;
+import com.how2java.tmall.service.OrderItemService;
 import com.how2java.tmall.service.ProductImageService;
 import com.how2java.tmall.service.ProductService;
+import com.how2java.tmall.service.ReviewService;
  
 @Service
 public class ProductServiceImpl  extends BaseServiceImpl implements ProductService {
  
     @Autowired
     ProductImageService productImageService;
+    
+    @Autowired
+    OrderItemService orderItemService;
+    
+    @Autowired
+    ReviewService reviewService;
+    
+    @Override
+    public List<Product> search(String keyword,int start,int count){
+    	DetachedCriteria dc = DetachedCriteria.forClass(clazz);
+    	dc.add(Restrictions.like("name","%"+keyword+"%"));
+    	return findByCriteria(dc,start,count);
+    }
      
     public void fill(List<Category> categorys) {
         for (Category category : categorys) {
@@ -50,4 +67,20 @@ public class ProductServiceImpl  extends BaseServiceImpl implements ProductServi
         category.setProducts(products);
          
     }  
+    
+    @Override
+    public void setSaleAndReviewNumber(List<Product> products) {
+    	for(Product product:products){
+    		setSaleAndReviewNumber(product);
+    	}
+    	
+    }
+    @Override
+    public void setSaleAndReviewNumber(Product product) {
+    	int saleCount = orderItemService.total();
+    	product.setSaleCount(saleCount);
+    	int reviewCount = reviewService.total(product);
+    	product.setReviewCount(reviewCount);
+    	
+    }
 }

@@ -9,6 +9,7 @@ import com.how2java.tmall.pojo.Product;
 import com.how2java.tmall.pojo.ProductImage;
 import com.how2java.tmall.pojo.Property;
 import com.how2java.tmall.pojo.PropertyValue;
+import com.how2java.tmall.pojo.Review;
 import com.how2java.tmall.pojo.User;
 
 public class Action4Pojo extends Action4Pagination{
@@ -20,6 +21,7 @@ public class Action4Pojo extends Action4Pagination{
 	protected User user;
 	protected Order order;
 	protected OrderItem orderItem;
+	protected Review review;
 	
 	protected List<Product> products;
 	protected List<Property> propertys;
@@ -30,8 +32,23 @@ public class Action4Pojo extends Action4Pagination{
 	protected List<User> users;
 	protected List<Order> orders;
 	protected List<OrderItem> orderItems;
+	protected List<Review> reviews;
 	
 	
+	
+	
+	public Review getReview() {
+		return review;
+	}
+	public void setReview(Review review) {
+		this.review = review;
+	}
+	public List<Review> getReviews() {
+		return reviews;
+	}
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
 	public Order getOrder() {
 		return order;
 	}
