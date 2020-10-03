@@ -56,4 +56,4 @@
 最后是需要登录的前端功能。这部分功能基本上都是和购物相关的。
 
 项目预览：
-![](https://s1.ax1x.com/2020/09/23/wjSLbn.png)
+![](https://github.com/PGE123/tmall_ssh/raw/master/WebContent/img/展示图.png)
